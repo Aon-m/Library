@@ -1,0 +1,168 @@
+:root {
+  --color-primary: hsl(203, 25%, 29%);
+  --color-secondary: hsl(5, 85%, 77%);
+  --color-tertiary: hsl(52, 90%, 73%);
+
+  --color-primary-shade: hsl(203, 25%, 29%);
+  --color-secondary-shade: hsl(5, 51%, 63%);
+  --color-tertiary-shade: #cea556;
+
+  --color-primary-highlight: hsl(0, 0%, 100%);
+  --color-secondary-highlight: hsla(0, 0%, 85%, 0.9);
+  --color-tertiary-highlight: hwb(10 25% 70%);
+}
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+
+  background-color: hsl(203, 25%, 29%);
+
+  overflow: hidden;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  padding: 1rem;
+
+  position: absolute;
+  top: 0;
+}
+
+nav a {
+  z-index: 1;
+  text-decoration: none;
+  color: var(--color-primary-highlight);
+}
+
+nav a:hover {
+  color: var(--color-secondary-highlight);
+}
+
+.header--image {
+  background-image: url(assets/images/image-background.jpg);
+  background-size: 80%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.header--text {
+  display: flex;
+  flex-direction: column;
+
+  width: 80vw;
+
+  text-align: center;
+  font-size: clamp(1rem, 1rem + 1vw, 1.5rem);
+
+  gap: 2rem;
+
+  margin-block-end: 3rem;
+}
+
+.header--text h1 {
+  color: var(--color-primary-highlight);
+}
+
+.header--text p {
+  color: var(--color-secondary-highlight);
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  width: 100vw;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
+.header--text > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (min-width: 45rem) {
+  header {
+    max-width: 100vw;
+  }
+
+  header::before {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 0.7) 100%
+      ),
+      linear-gradient(150deg, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.7) 100%);
+  }
+
+  nav {
+    padding: 2rem;
+  }
+
+  .header--image {
+    background-position: top left;
+    background-size: 80%;
+
+    margin-inline-end: auto;
+
+    width: 80%;
+    max-height: 100vh;
+  }
+
+  .header--text {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    text-align: right;
+
+    margin-inline-end: 3rem;
+    width: clamp(20ch, calc(20ch + 20vw), 40ch);
+  }
+
+  .header--text h1 {
+    font-size: 2rem;
+  }
+
+  .header--text p {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 68rem) {
+  .header--image {
+    background-size: contain;
+  }
+}
