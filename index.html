@@ -11,11 +11,11 @@
   <body>
     <header>
       <nav>
-        <a href="index.html">Home</a>
+        <a href="index.html" id="home">Home</a>
         <a href="#books">Books</a>
       </nav>
-      <div class="header--image"></div>
-      <div class="header--text">
+      <div class="header__image"></div>
+      <div class="header__text">
         <h1>Personal E-Library</h1>
         <p>
           Welcome to your personal e-library for adding and tracking the books
@@ -23,7 +23,14 @@
         </p>
       </div>
     </header>
-    <main id="books"></main>
+    <main id="books">
+      <div class="library__heading">
+        <h2>Books</h2>
+      </div>
+      <div class="library">
+        <button class="library__book" id="library__book--add">+ Add Book</button>
+      </div>
+    </main>
     <footer></footer>
   </body>
 </html>

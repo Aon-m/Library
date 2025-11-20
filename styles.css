@@ -9,7 +9,7 @@
 
   --color-primary-highlight: hsl(0, 0%, 100%);
   --color-secondary-highlight: hsla(0, 0%, 85%, 0.9);
-  --color-tertiary-highlight: hwb(10 25% 70%);
+  --color-tertiary-highlight: hwb(0 47% 53%);
 }
 
 *,
@@ -21,8 +21,8 @@
 }
 
 body {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr 1fr auto;
 }
 
 header {
@@ -65,7 +65,7 @@ nav a:hover {
   color: var(--color-secondary-highlight);
 }
 
-.header--image {
+.header__image {
   background-image: url(assets/images/image-background.jpg);
   background-size: 80%;
   background-position: 50% 50%;
@@ -75,7 +75,7 @@ nav a:hover {
   aspect-ratio: 1 / 1;
 }
 
-.header--text {
+.header__text {
   display: flex;
   flex-direction: column;
 
@@ -88,12 +88,12 @@ nav a:hover {
   margin-block-end: 3rem;
 }
 
-.header--text h1 {
+.header__text h1 {
   font-size: clamp(2rem, calc(2rem + 1vw), 6rem);
   color: var(--color-primary-highlight);
 }
 
-.header--text p {
+.header__text p {
   font-size: clamp(1.2rem, calc(1.2rem + 0.2vw), 2.5rem);
   color: var(--color-secondary-highlight);
 }
@@ -112,9 +112,70 @@ header::before {
   );
 }
 
-.header--text > * {
+.header__text > * {
   position: relative;
   z-index: 1;
+}
+
+#home {
+  position: sticky;
+}
+
+main {
+  min-height: 80%;
+}
+
+.library {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    clamp(15rem, calc(25rem - 15vw), 20rem)
+  );
+  gap: 1rem;
+
+  justify-content: center;
+
+  padding: 2rem;
+}
+
+.library__heading {
+  width: 100vw;
+
+  text-align: center;
+  color: var(--color-tertiary-highlight);
+  background: var(--color-secondary-highlight);
+  font-size: clamp(1.2rem, calc(1.2rem + 0.2vw), 2.5rem);
+
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.library__book {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  aspect-ratio: 1.4 / 1;
+  border-radius: 1.5rem;
+
+  background: var(--color-tertiary);
+  border: 0.5rem solid var(--color-tertiary-shade);
+}
+
+#library__book--add {
+  background: var(--color-secondary-highlight);
+  border: 0.6rem solid var(--color-tertiary-highlight);
+
+  color: var(--color-tertiary-highlight);
+  font-size: clamp(1.5rem, calc(2rem - 1vw), 2rem);
+}
+
+#library__book--add:hover {
+  cursor: pointer;
+  background: var(--color-primary-highlight);
+
+  transition: 100ms ease;
 }
 
 @media screen and (min-width: 45rem) {
@@ -135,7 +196,7 @@ header::before {
     padding: 2rem;
   }
 
-  .header--image {
+  .header__image {
     background-position: top left;
     background-size: 80%;
 
@@ -145,7 +206,7 @@ header::before {
     max-height: 100vh;
   }
 
-  .header--text {
+  .header__text {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -155,10 +216,15 @@ header::before {
     margin-inline-end: 3rem;
     width: clamp(25ch, calc(25ch + 20vw), 100ch);
   }
+
+  .library__heading {
+    text-align: right;
+    padding-inline-end: 2rem;
+  }
 }
 
 @media screen and (min-width: 68rem) {
-  .header--image {
+  .header__image {
     background-size: contain;
   }
 }
