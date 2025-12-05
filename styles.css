@@ -18,6 +18,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
+  font-weight: bold;
 }
 
 body {
@@ -139,6 +141,8 @@ main {
 }
 
 .library__heading {
+  position: sticky;
+  top: 0;
   width: 100vw;
 
   text-align: center;
@@ -176,6 +180,108 @@ main {
   background: var(--color-primary-highlight);
 
   transition: 100ms ease;
+}
+
+#library__book__form {
+  background: var(--color-secondary-highlight);
+  border: 0.6rem solid var(--color-tertiary-highlight);
+  border-radius: 1.5rem;
+
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 1rem;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: min(80vw, 30rem);
+}
+
+#library__book__form label {
+  display: block;
+
+  margin-block: 0.5rem;
+
+  font-size: clamp(1rem, calc(1rem + 0.2vw), 3rem);
+}
+
+#library__book__form input[type="text"] {
+  display: block;
+  border-radius: 1rem;
+  padding: 0.4rem 1rem;
+  margin-block: 0.5rem;
+  width: 100%;
+  border: none;
+  transition: 500ms ease;
+}
+
+#library__book__form input[type="text"]:hover,
+#library__book__form input[type="number"]:hover {
+  transform: scale(1.02);
+}
+
+#library__book__form input[type="number"] {
+  display: block;
+  border-radius: 1rem;
+  padding: 0.4rem 1rem;
+  margin-block: 0.5rem;
+  width: 12rem;
+  border: none;
+  transition: 500ms ease;
+}
+
+#create-book {
+  padding: 0.5rem 1rem;
+  margin: auto;
+  width: fit-content;
+  border-radius: 1rem;
+  background-color: var(--color-tertiary-highlight);
+  border: 1px solid white;
+  color: var(--color-primary-highlight);
+  font-size: 0.9rem;
+  transition: 200ms ease;
+}
+
+#create-book:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+#create-book:focus {
+  transform: scale(1);
+}
+
+#library__book__form input[type="radio"] {
+  width: 1rem;
+  border: 0;
+  aspect-ratio: 1/1;
+}
+
+#library__book__form input[type="radio"]:hover {
+  cursor: pointer;
+}
+
+#close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+  background: none;
+  width: 0.5rem;
+  border: none;
+  font-size: 1rem;
+  color: black;
+  z-index: 100;
+}
+
+#close-button:hover {
+  cursor: pointer;
+  color: var(--color-tertiary-highlight);
 }
 
 @media screen and (min-width: 45rem) {

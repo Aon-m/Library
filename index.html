@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="assets/favicon.png" />
-    <script defer href="script.js"></script>
+    <script defer src="script.js"></script>
     <title>Library</title>
   </head>
   <body>
@@ -28,7 +28,51 @@
         <h2>Books</h2>
       </div>
       <div class="library">
-        <button class="library__book" id="library__book--add">+ Add Book</button>
+        <form id="library__book__form">
+          <button id="close-button">X</button>
+          <label>
+            Author:
+            <input
+              type="text"
+              name="author"
+              id="author"
+              placeholder="J.K. Rowling"
+            />
+          </label>
+
+          <label>
+            Title:
+            <input
+              type="text"
+              name="title"
+              id="title"
+              placeholder="Harry Potter and the Sorcerer's Stone"
+              required
+            />
+          </label>
+
+          <label>
+            Number of Pages:
+            <input type="number" name="pages" id="pages" placeholder="309"/>
+          </label>
+
+          <label>
+            Genre:
+            <input type="text" name="genre" id="genre" placeholder="Fantasy" />
+          </label>
+
+          <label>
+            Read:
+            <input type="radio" name="read" value="yes" checked /> Yes
+            <input type="radio" name="read" value="no" /> No
+          </label>
+
+          <button id="create-book">Add Book</button>
+        </form>
+
+        <button class="library__book" id="library__book--add">
+          + Add Book
+        </button>
       </div>
     </main>
     <footer></footer>
