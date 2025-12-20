@@ -25,54 +25,91 @@
     </header>
     <main id="books">
       <div class="library__heading">
+        <button id="library__create-book">+ Add Book</button>
         <h2>Books</h2>
       </div>
-      <div class="library">
-        <form id="library__book__form">
+      <div id="library-block" class="library">
+        <dialog id="library__book__dialog">
           <button id="close-button">X</button>
-          <label>
-            Author:
-            <input
-              type="text"
-              name="author"
-              id="author"
-              placeholder="J.K. Rowling"
+          <form id="library__book__form">
+            <label>
+              Book Cover:
+              <input type="file" id="book-cover" accept="image/*"/>
+            </label>
+            <label>
+              Author:
+              <input
+                type="text"
+                name="author"
+                id="author"
+                placeholder="J.K. Rowling"
+              />
+            </label>
+
+            <label>
+              Title:
+              <input
+                type="text"
+                name="title"
+                id="title"
+                placeholder="Harry Potter and the Sorcerer's Stone"
+                required
+              />
+            </label>
+
+            <label>
+              Number of Pages:
+              <input type="number" name="pages" id="pages" placeholder="309" />
+            </label>
+
+            <label>
+              Genre:
+              <input
+                type="text"
+                name="genre"
+                id="genre"
+                placeholder="Fantasy"
+              />
+            </label>
+
+            <label>
+              Read:
+              <input type="radio" name="read" value="yes" checked /> Yes
+              <input type="radio" name="read" value="no" /> No
+            </label>
+
+            <button type="submit" id="create-book">Add Book</button>
+          </form>
+        </dialog>
+        <template id="book-template">
+          <div class="library__book">
+            <button class="library__book__delete-button">x</button>
+            <img
+              src="assets/images/image-no-image.jpg"
+              alt="no-image"
+              class="library__book__image"
             />
-          </label>
+            <h3 class="library__book__title">Book Title</h3>
+            <p>
+              <span class="bold">By </span>
+              <span class="library__book__author">Author Name</span>
+            </p>
 
-          <label>
-            Title:
-            <input
-              type="text"
-              name="title"
-              id="title"
-              placeholder="Harry Potter and the Sorcerer's Stone"
-              required
-            />
-          </label>
+            <p>
+              <span class="bold">Number of Pages: </span>
+              <span class="library__book__pages">0</span>
+            </p>
 
-          <label>
-            Number of Pages:
-            <input type="number" name="pages" id="pages" placeholder="309"/>
-          </label>
+            <p>
+              <span class="bold">Genre: </span>
+              <span class="library__book__genre">Genre Name</span>
+            </p>
 
-          <label>
-            Genre:
-            <input type="text" name="genre" id="genre" placeholder="Fantasy" />
-          </label>
-
-          <label>
-            Read:
-            <input type="radio" name="read" value="yes" checked /> Yes
-            <input type="radio" name="read" value="no" /> No
-          </label>
-
-          <button id="create-book">Add Book</button>
-        </form>
-
-        <button class="library__book" id="library__book--add">
-          + Add Book
-        </button>
+            <button class="library__book__toggle-read-button library__book__toggle-read-button--read">
+              Toggle Read Status
+            </button>
+          </div>
+        </template>
       </div>
     </main>
     <footer></footer>
