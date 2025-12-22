@@ -38,6 +38,7 @@ header {
   align-items: center;
 
   width: 100%;
+  max-width: 100vw;
 
   background-color: hsl(203, 25%, 29%);
 
@@ -154,11 +155,15 @@ main {
   text-align: center;
   color: var(--color-tertiary-highlight);
   background: var(--color-secondary-highlight);
-  font-size: clamp(1.2rem, calc(1.2rem + 0.2vw), 2.5rem);
+  font-size: clamp(0.8rem, calc(0.8rem + 1vw), 2.5rem);
 
   margin-bottom: 1rem;
   padding-inline: 1rem;
   z-index: 999;
+}
+
+.library__heading h2 {
+  margin-inline-end: 1rem;
 }
 
 .library__book {
@@ -179,7 +184,7 @@ main {
 .library__book__title {
   font-size: clamp(1.5rem, calc(1.5rem + 0.1vw), 3rem);
   text-align: center;
-  margin-bottom: 1rem;
+  margin-block-end: 1rem;
 }
 
 .library__book p {
@@ -246,7 +251,7 @@ main {
 #library__create-book {
   background: none;
   border: none;
-  font-size: clamp(1.2rem, calc(1.2rem + 0.2vw), 2.5rem);
+  font-size: clamp(1rem, calc(1rem + 1vw), 2.5rem);
   color: var(--color-tertiary-highlight);
   padding: 1rem;
 }

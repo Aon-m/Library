@@ -115,7 +115,13 @@ function bookFormat(book) {
   });
 
   const readBtn = bookDiv.querySelector(".library__book__toggle-read-button");
-  readBtn.textContent = "Read";
+  if (book.read === "yes") {
+    readBtn.textContent = "Read";
+    readBtn.classList.remove("library__book__toggle-read-button--unread");
+  } else {
+    readBtn.textContent = "Not Read";
+    readBtn.classList.add("library__book__toggle-read-button--unread");
+  }
   readBtn.addEventListener("click", toggleRead);
 
   const bookCover = bookDiv.querySelector(".library__book__image");
@@ -128,11 +134,12 @@ function bookFormat(book) {
   libraryBlock.append(bookDiv);
 
   function toggleRead(e) {
-    e.target.classList.toggle("library__book__toggle-read-button--unread");
     if (e.target.textContent !== "Not Read") {
       e.target.textContent = "Not Read";
+      e.target.classList.add("library__book__toggle-read-button--unread");
     } else {
       e.target.textContent = "Read";
+      e.target.classList.remove("library__book__toggle-read-button--unread");
     }
   }
 }
